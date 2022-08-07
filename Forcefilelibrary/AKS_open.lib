@@ -1,0 +1,153 @@
+!!index array str
+ "AKS"
+!entry.AKS.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "N" "N" 0 1 131075 7 7 -0.640000
+ "H" "H" 0 1 131075 8 1 0.326400
+ "CA" "CX" 0 1 131075 9 6 0.113900
+ "HA" "H1" 0 1 131073 10 0 0.610000
+ "C" "C" 0 1 131075 11 6 -0.556100
+ "O" "O" 0 1 131073 12 8 0.015700
+ "CB" "CY" 0 1 131075 13 6 0.003000
+ "HB2" "HC" 0 1 131073 14 1 0.004000
+ "HB1" "HC" 0 1 131073 15 1 0.010000
+ "CC" "CY" 0 1 131075 16 6 0.008400
+ "HC1" "HC" 0 1 131073 17 1 0.008400
+ "HC2" "HC" 0 1 131073 18 1 0.070000
+ "CD" "CY" 0 1 131075 19 6 0.025000
+ "HD1" "HC" 0 1 131073 20 1 0.025000
+ "HD2" "HC" 0 1 131073 21 1 -0.106200
+ "CE" "CV" 0 1 131075 22 6 0.127200
+ "HE" "HA" 0 1 131073 23 1 -0.461400
+ "C5" "CV" 0 1 131075 24 6 0.182700
+ "H5" "HA" 0 1 131073 25 1 0.182700
+ "H6" "HA" 0 1 131073 26 1 0.0
+!entry.AKS.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "N" "N" 0 -1 0.0
+ "H" "H" 0 -1 0.0
+ "CA" "CX" 0 -1 0.0
+ "HA" "H1" 0 -1 0.0
+ "C" "C" 0 -1 0.0
+ "O" "O" 0 -1 0.0
+ "CB" "CY" 0 -1 0.0
+ "HB2" "HC" 0 -1 0.0
+ "HB1" "HC" 0 -1 0.0
+ "CC" "CY" 0 -1 0.0
+ "HC1" "HC" 0 -1 0.0
+ "HC2" "HC" 0 -1 0.0
+ "CD" "CY" 0 -1 0.0
+ "HD1" "HC" 0 -1 0.0
+ "HD2" "HC" 0 -1 0.0
+ "CE" "CV" 0 -1 0.0
+ "HE" "HA" 0 -1 0.0
+ "C5" "CV" 0 -1 0.0
+ "H5" "HA" 0 -1 0.0
+ "H6" "HA" 0 -1 0.0
+!entry.AKS.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.AKS.unit.childsequence single int
+ 2
+!entry.AKS.unit.connect array int
+ 1
+ 5
+!entry.AKS.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 2 1
+ 1 3 1
+ 3 4 1
+ 3 5 1
+ 3 7 1
+ 5 6 2
+ 7 8 1
+ 7 9 1
+ 7 10 1
+ 10 11 1
+ 10 12 1
+ 10 13 1
+ 13 14 1
+ 13 15 1
+ 13 16 1
+ 16 17 1
+ 16 18 2
+ 18 19 1
+ 18 20 1
+!entry.AKS.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+ "R" 1 "A" 8
+ "R" 1 "A" 9
+ "R" 1 "A" 10
+ "R" 1 "A" 11
+ "R" 1 "A" 12
+ "R" 1 "A" 13
+ "R" 1 "A" 14
+ "R" 1 "A" 15
+ "R" 1 "A" 16
+ "R" 1 "A" 17
+ "R" 1 "A" 18
+ "R" 1 "A" 19
+ "R" 1 "A" 20
+!entry.AKS.unit.name single str
+ "AKS"
+!entry.AKS.unit.positions table  dbl x  dbl y  dbl z
+ -1.263851 -1.544154 -0.127540
+ -1.477941 -1.729668 -1.096920
+ -0.215446 -0.588452 0.168506
+ -0.078725 -0.551319 1.249291
+ -0.644247 0.787217 -0.322234
+ -0.068176 1.316705 -1.270124
+ 0.947438 -0.953923 -0.411395
+ 1.139607 -1.996670 -0.206363
+ 0.866059 -0.844806 -1.482929
+ 1.980324 -0.213056 0.044217
+ 1.778318 0.834683 -0.121882
+ 2.080791 -0.357286 1.109824
+ 3.134236 -0.554849 -0.567926
+ 3.048185 -0.301359 -1.614357
+ 3.278746 -1.622398 -0.490813
+ 4.307070 0.174997 0.042004
+ 4.371628 1.256655 -0.076131
+ 5.403218 -0.539305 0.827846
+ 6.231023 0.027185 1.254615
+ 5.364343 -1.620158 0.963640
+!entry.AKS.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 0 0 0 0 0 0
+!entry.AKS.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "AKS" 1 33 1 "p" 0
+!entry.AKS.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.AKS.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.AKS.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
