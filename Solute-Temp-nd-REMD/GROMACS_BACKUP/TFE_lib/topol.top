@@ -1,0 +1,17 @@
+; peptide_GMX.top created by acpype (Rev: 0) on Tue Aug 14 16:36:40 2018
+
+[ defaults ]
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+1               2               yes             0.5     0.8333
+
+
+;   Include forcefield parameters 
+#include "/home/marie/Stapled_peptide_git/TFE_lib/fffield.itp" 
+
+[ system ]
+peptide in water
+
+[ molecules ]
+; Compound        nmols    
+TFE	          1
+

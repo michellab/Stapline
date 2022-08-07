@@ -1,0 +1,14 @@
+# This log was created on 2019-02-12 18:17:11 
+# by executing this command line:
+# /home/marie/GIT_REST1/Solute-temp_REST2.py -f acemet.wat.prmtop -xyz acemet.wat.rst7
+###
+### Replica 000 - scaling factor 1.000
+### New topology saved as acemet.wat+REST1.000.prmtop
+### Replica 001 - scaling factor 1.025
+### New topology saved as acemet.wat+REST1.001.prmtop
+### Replica 002 - scaling factor 1.050
+### New topology saved as acemet.wat+REST1.002.prmtop
+### Replica 003 - scaling factor 1.075
+### New topology saved as acemet.wat+REST1.003.prmtop
+### Replica 004 - scaling factor 1.100
+### New topology saved as acemet.wat+REST1.004.prmtop

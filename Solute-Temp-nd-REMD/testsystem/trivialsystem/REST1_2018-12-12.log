@@ -1,0 +1,14 @@
+# This log was created on 2018-12-12 14:21:39 
+# by executing this command line:
+# ../../Solute-temp_v0.2.py -f sys.prmtop -xyz sys.rst7 -v
+###
+### Replica 000 - scaling factor 1.000
+### New topology saved as sys+REST1.000.prmtop
+### Replica 001 - scaling factor 1.250
+### New topology saved as sys+REST1.001.prmtop
+### Replica 002 - scaling factor 1.500
+### New topology saved as sys+REST1.002.prmtop
+### Replica 003 - scaling factor 1.750
+### New topology saved as sys+REST1.003.prmtop
+### Replica 004 - scaling factor 2.000
+### New topology saved as sys+REST1.004.prmtop
