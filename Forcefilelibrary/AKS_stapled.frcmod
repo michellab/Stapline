@@ -1,0 +1,107 @@
+Force field parameters from topol.prmtop
+MASS
+CV    12.010
+HC     1.008
+C     12.010
+O     16.000
+N     14.010
+H      1.008
+CX    12.010
+H1     1.008
+CY    12.010
+HA     1.008
+
+BOND
+CV-C     317.000   1.522
+C -O     570.000   1.229
+C -N     490.000   1.335
+N -CX    337.000   1.449
+CX-C     317.000   1.522
+CX-CY    549.000   1.350
+CV-CV    310.000   1.526
+CV-CY    317.000   1.510
+CY-CY    549.000   1.350
+N -CV    337.000   1.449
+N -H     434.000   1.010
+CX-H1    340.000   1.090
+CY-HC    367.000   1.080
+CV-HA    340.000   1.090
+
+ANGLE              
+HA-CV-HA   37.394     118.920
+CV-CV-HA   50.527     119.700 
+CV-CY-HC   47.475     110.360	          SOURCE3_SOURCE5     11033    0.8531   
+HC-CY-HC   38.960     107.580	          SOURCE3_SOURCE5     92717    0.5328      
+CY-CY-HC   46.816     109.800	          SOURCE3_SOURCE5    179054    0.7972
+CX-CY-HC   46.816     109.800	          SOURCE3_SOURCE5    179054    0.7972
+CY-CX-H1   46.816     109.800	          SOURCE3_SOURCE5    179054    0.7972
+CY-CV-HA   45.572     120.000	
+CV-CV-CY   66.132     123.630	          SOURCE3_SOURCE5      4623    2.2803
+CY-CY-CY   64.888     111.510	          SOURCE3_SOURCE5     61999    1.8007
+CX-CY-CY   64.888     111.510	          SOURCE3_SOURCE5     61999    1.8007
+CY-CX-N    83.161     111.610	          SOURCE3_SOURCE5      3543    1.6672
+C -CX-CY   65.307     111.040	          SOURCE3_SOURCE5      8161    1.7693
+CY-CV-CY   64.898     115.650	          SOURCE3_SOURCE5      1743    1.5647
+CV-CY-CY   65.459     111.560	          SOURCE4_SOURCE5      9345    1.7373
+
+NONB
+CV    1.90800000   0.10940000
+HC    1.48700000   0.01570000
+C     1.90800000   0.08600000
+O     1.66120000   0.21000000
+N     1.82400000   0.17000000
+H     0.60000000   0.01570000
+CX    1.90800000   0.10940000
+H1    1.38700000   0.01570000
+CY    1.90800000   0.08600000
+HA    1.45900000   0.01500000
+
+
+
+DIHE
+N -C -CX-CY    1         0.000        180.000         -4          p20 GA AUE=0.5445 RMSE=0.7015 TorType=2
+N -C -CX-CY    1         0.710        180.000          2          p20 GA AUE=0.5445 RMSE=0.7015 TorType=2
+N -CX-CY-HC     1         0.100         0.000           3          m12 SS AUE=0.1396 RMSE=0.1646 TorType=3
+O -C -CX-CY    1         0.550        180.000         -3
+O -C -CX-CY    1         0.030        180.000         -2          sialic1,t37,t41 GA AUE=0.7374 RMSE=0.9897 TorType=3
+O -C -CX-CY    1         0.740          0.000          1
+H -N -CX-CY    1         0.217          0.000          3          m20 SS AUE=0.7039 RMSE=0.8271 TorType=3
+C -N -CY-CY    1         0.580          0.000         -3          m14 GA AUE=0.4298 RMSE=0.5205 TorType=3
+C -N -CY-CY    1         0.280        180.000          2          m14 GA AUE=0.4298 RMSE=0.5205 TorType=3
+N -CX-CY-CY    1         0.210          0.000          3          p8 SS AUE=0.4096 RMSE=0.5005 TorType=3
+H1-CX-CY-HC    1         0.000          0.000         -4          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+H1-CX-CY-HC    1         0.120          0.000         -3          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+H1-CX-CY-HC    1         0.000          0.000         -2          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+H1-CX-CY-HC    1         0.000          0.000          1          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+C -CX-CY-CY    1         0.100          0.000          3          p15,p21 SS AUE=0.6594 RMSE=0.8092 TorType=3
+C -CX-CY-HC    1         0.000          0.000          3          p15,p21 SS AUE=0.6594 RMSE=0.8092 TorType=3
+CY-CY-CX-H1    1         0.080          0.000          3          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.000          0.000         -4          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.080          0.000         -3          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.000          0.000         -2          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.000          0.000          1          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-CY    1         0.000          0.000         -4          c42  GA AUE=0.2975 RMSE=0.3306 TorType=2
+CX-CY-CY-CY    1         0.130          0.000         -3          c42  GA AUE=0.2975 RMSE=0.3306 TorType=2
+CX-CY-CY-CY    1         0.290        180.000         -2          c42 GA AUE=0.2720 RMSE=0.3206 TorType=2
+CX-CY-CY-CY    1         0.110          0.000          1          c42 GA AUE=0.2720 RMSE=0.3206 TorType=2
+HC-CY-CY-HC    1         0.000          0.000         -4          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+HC-CY-CY-HC    1         0.120          0.000         -3          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+HC-CY-CY-HC    1         0.000          0.000         -2          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+HC-CY-CY-HC    1         0.000          0.000          1          m1 SS AUE=0.2420 RMSE=0.2944 TorType=2
+CX-CY-CY-HC    1         0.000          0.000         -4          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.080          0.000         -3          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.000          0.000         -2          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CX-CY-CY-HC    1         0.000          0.000          1          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+CY-CY-CY-HC    1         0.080          0.000          3          t2 SS AUE=0.2507 RMSE=0.3027 TorType=3
+HC-CY-CY-CV    1         0.120          0.000          3.000      JCC,7,(1986),230 (1.4/ 9 = 0.12)
+CY-CY-CY-CV    1         0.120          0.000          3.000      JCC,7,(1986),230 (1.4/ 9 = 0.12  )
+CY-CY-CV-HA    1         1.1          180.000          2.         Junmei et al.1999
+HC-CY-CV-HA    1         1.1          180.000          2.         Junmei et al.1999
+HC-CY-CV-CV    1         0.360        180.000         -3          c23 GA AUE=0.0738 RMSE=0.0893 TorType=2
+HC-CY-CV-CV    1         1.470          0.000          1          c23 GA AUE=0.0738 RMSE=0.0893 TorType=2
+CY-CY-CV-CV    1         0.112          0.000          2          t4 SS AUE=0.5917 RMSE=0.7276 TorType=3
+CY-CV-CV-CY    1         5.290        180.000         -2          c22 GA AUE=2.0091 RMSE=3.0745 TorType=2
+CY-CV-CV-CY    1         0.400        180.000          1          c22 GA AUE=2.0091 RMSE=3.0745 TorType=2
+CY-CV-CV-HA    1         7.500        180.000          2.000      c2=c2 double bond, intrpol.bsd.on C6H6
+HA-CV-CV-HA    1         7.500        180.000          2.000      c2=c2 double bond, intrpol.bsd.on C6H6
+CH-CY-CX-N     1         0.100          0.000          3          m12 SS AUE=0.1396 RMSE=0.1646 TorType=3
