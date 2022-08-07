@@ -1,0 +1,9 @@
+#define _FF_USER
+
+
+
+
+
+#include "/home/marie/Stapled_peptide_git/TFE_lib/TFE_GMX_B15.itp" 
+#include "/home/marie/Stapled_peptide_git/TFE_lib/tip4pew.itp"
+#include "/home/marie/Stapled_peptide_git/TFE_lib/ions.itp"

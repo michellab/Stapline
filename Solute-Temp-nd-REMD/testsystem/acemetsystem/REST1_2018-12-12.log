@@ -1,0 +1,14 @@
+# This log was created on 2018-12-12 15:55:51 
+# by executing this command line:
+# ../../Solute-temp_v0.2.py -f acemet.wat.prmtop -xyz acemet.wat.rst7
+###
+### Replica 000 - scaling factor 1.000
+### New topology saved as acemet.wat+REST1.000.prmtop
+### Replica 001 - scaling factor 1.250
+### New topology saved as acemet.wat+REST1.001.prmtop
+### Replica 002 - scaling factor 1.500
+### New topology saved as acemet.wat+REST1.002.prmtop
+### Replica 003 - scaling factor 1.750
+### New topology saved as acemet.wat+REST1.003.prmtop
+### Replica 004 - scaling factor 2.000
+### New topology saved as acemet.wat+REST1.004.prmtop

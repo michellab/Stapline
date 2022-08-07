@@ -1,0 +1,23 @@
+Remark line goes here
+MASS
+OW 16.000        0.434               same as o  
+HW 1.008         0.135               same as hw 
+NE 20.170        0.530              
+
+BOND
+HW-OW  553.00   0.957       same as ow-hw, penalty score=  0.0
+
+ANGLE
+HW-OW-HW  100.000     104.520   same as hw-ow-hw, penalty score=  0.0
+
+DIHE
+
+IMPROPER
+
+NONBON
+  OW          1.6612  0.2100             same as o  
+  HW          0.3019  0.0047  
+  NE          1.8240  0.1700             same as na 
+
+
+
