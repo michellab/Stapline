@@ -1,0 +1,48 @@
+source leaprc.protein.ff14SB 
+
+
+#### Unstapled ####
+
+source leaprc.protein.ff14SB
+source leaprc.water.tip4pew
+
+
+
+loadoff XXX-open.lib
+loadAmberParams XXX-open.frcmod
+
+seq = { ALA XXX ALA }
+
+solvateBox seq TIP4PEWBOX 2
+saveAmberParm  seq  topol.prmtop input.rst7
+
+quit
+
+
+####################
+
+
+
+
+#### Stapled ####
+
+source leaprc.protein.ff14SB 
+source leaprc.water.tip4pew
+
+
+
+loadoff ../libs/AKR_stapled2.lib
+loadAmberParams AKR-stapled.frcmod
+
+seq = sequence { ALA AKR ALA ALA ALA AKR ALA }
+
+bond seq.2.CY seq.6.CY
+
+solvateBox seq TIP4PEWBOX 15
+saveAmberParm  seq  topol.prmtop input.rst7
+
+quit
+
+
+####################
+
