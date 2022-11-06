@@ -1,0 +1,26 @@
+ addAtomTypes {{ "CU" "C" "sp3" }}
+
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+
+
+loadoff S51.lib
+loadoff S52.lib
+loadoff R51.lib
+loadoff R52.lib
+
+loadamberparams 	add-ff.frcmod
+
+
+pep = sequence {ALA S51 ALA ALA ALA S52 ALA }
+#pep = sequence {ALA R51 ALA ALA ALA S52 ALA }
+#loadpdb peptide-without-sidechains.pdb
+
+
+bond pep.2.CY pep.6.CY
+select pep
+relax pep
+
+savepdb pep  peptide.pdb
+saveamberparm pep system.prmtop system.rst7
+quit

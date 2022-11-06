@@ -1,0 +1,123 @@
+!!index array str
+ "R52"
+!entry.R52.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "C"    "C" 0 1 196608  1 6  0.817400
+ "O"    "O" 0 1 196608  2 8 -0.607700
+ "CA"  "CX" 0 1 196609  3 6  0.076300
+ "C1B" "CU" 0 1 196608  4 6 -0.302600
+ "CB"  "CU" 0 1 196608  5 6 -0.031400
+ "CY"  "CU" 0 1 196608  6 6  0.005500
+ "N"    "N" 0 1 196608  7 7 -0.683700
+ "HB1" "HC" 0 1 196608 33 1  0.100600
+ "HB2" "HC" 0 1 196608 34 1  0.100600
+ "HB3" "HC" 0 1 196608 35 1  0.100600
+ "HB4" "HC" 0 1 196608 36 1  0.027700
+ "HB5" "HC" 0 1 196608 37 1  0.027700
+ "HC1" "HC" 0 1 196608 38 1  0.022500
+ "HC2" "HC" 0 1 196608 39 1  0.022500
+ "H"    "H" 0 1 196608 61 1  0.342300
+!entry.R52.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "C" "C" 0 -1 0.0
+ "O" "O" 0 -1 0.0
+ "CA" "CX" 0 -1 0.0
+ "C1B" "CU" 0 -1 0.0
+ "CB" "CU" 0 -1 0.0
+ "CY" "CU" 0 -1 0.0
+ "N" "N" 0 -1 0.0
+ "HB1" "HC" 0 -1 0.0
+ "HB2" "HC" 0 -1 0.0
+ "HB3" "HC" 0 -1 0.0
+ "HB4" "HC" 0 -1 0.0
+ "HB5" "HC" 0 -1 0.0
+ "HC1" "HC" 0 -1 0.0
+ "HC2" "HC" 0 -1 0.0
+ "H" "H" 0 -1 0.0
+!entry.R52.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.R52.unit.childsequence single int
+ 2
+!entry.R52.unit.connect array int
+ 7
+ 1
+!entry.R52.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 2 2
+ 1 3 1
+ 3 4 1
+ 3 5 1
+ 3 7 1
+ 4 8 1
+ 4 9 1
+ 4 10 1
+ 5 6 1
+ 5 11 1
+ 5 12 1
+ 6 13 1
+ 6 14 1
+ 7 15 1
+!entry.R52.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+ "R" 1 "A" 8
+ "R" 1 "A" 9
+ "R" 1 "A" 10
+ "R" 1 "A" 11
+ "R" 1 "A" 12
+ "R" 1 "A" 13
+ "R" 1 "A" 14
+ "R" 1 "A" 15
+!entry.R52.unit.name single str
+ "R52"
+!entry.R52.unit.positions table  dbl x  dbl y  dbl z
+ 0.337293 2.377316 0.048145
+ 0.509984 3.158466 -0.858469
+ -0.805440 1.327349 0.0
+ -1.765823 1.439418 1.194455
+ -1.578872 1.463947 -1.326470
+ -2.748795 0.497284 -1.526843
+ -0.187454 -0.011112 -0.049682
+ -1.245924 1.554695 2.131969
+ -2.392641 0.558929 1.258681
+ -2.403529 2.305246 1.056657
+ -1.955526 2.484378 -1.368332
+ -0.871907 1.340751 -2.136422
+ -2.397077 -0.521754 -1.428889
+ -3.495259 0.656461 -0.755507
+ 0.806308 -0.020217 -0.044443
+!entry.R52.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 7 1 0 0 0 0
+!entry.R52.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "R52" 1 65 1 "p" 0
+!entry.R52.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.R52.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.R52.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
