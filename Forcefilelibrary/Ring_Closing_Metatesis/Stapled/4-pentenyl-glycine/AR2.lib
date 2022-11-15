@@ -1,0 +1,105 @@
+!!index array str
+ "AR2"
+!entry.AR2.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+"C" "C" 0 1 131072 3 6 0.709771
+"O" "O" 0 1 131072 4 8 -0.594138
+"CA" "CX" 0 1 131072 5 6 -0.000170
+"CB" "CU" 0 1 131072 6 6 -0.051190
+"CY" "CU" 0 1 131072 7 6 -0.055616
+"N" "N" 0 1 131072 23 7 -0.667039
+"HA" "H1" 0 1 131072 31 1 0.101824
+"HB1" "HC" 0 1 131072 32 1 0.043947
+"HB2" "HC" 0 1 131072 33 1 0.043947
+"HC1" "HC" 0 1 131072 34 1 0.039564
+"HC2" "HC" 0 1 131072 35 1 0.039564
+"H" "H" 0 1 131072 55 1 0.344691
+!entry.AR2.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "C" "C" 0 -1 0.0
+ "O" "O" 0 -1 0.0
+ "CA" "CX" 0 -1 0.0
+ "CB" "CU" 0 -1 0.0
+ "CY" "CU" 0 -1 0.0
+ "N" "N" 0 -1 0.0
+ "HA" "H1" 0 -1 0.0
+ "HB1" "HC" 0 -1 0.0
+ "HB2" "HC" 0 -1 0.0
+ "HC1" "HC" 0 -1 0.0
+ "HC2" "HC" 0 -1 0.0
+ "H" "H" 0 -1 0.0
+!entry.AR2.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.AR2.unit.childsequence single int
+ 2
+!entry.AR2.unit.connect array int
+ 6
+ 1
+!entry.AR2.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 2 2
+ 1 3 1
+ 3 4 1
+ 3 6 1
+ 3 7 1
+ 4 5 1
+ 4 8 1
+ 4 9 1
+ 5 10 1
+ 5 11 1
+ 6 12 1
+!entry.AR2.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+ "R" 1 "A" 8
+ "R" 1 "A" 9
+ "R" 1 "A" 10
+ "R" 1 "A" 11
+ "R" 1 "A" 12
+!entry.AR2.unit.name single str
+ "AR2"
+!entry.AR2.unit.positions table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 1.204497 0.0 0.0
+ -0.751668 1.337958 0.0
+ -1.838797 1.360713 1.086316
+ -2.804936 2.538401 0.950840
+ 0.119478 2.513415 8.175944E-17
+ -1.241731 1.352152 -0.962780
+ -1.381863 1.366520 2.066942
+ -2.392524 0.429009 0.994666
+ -2.261641 3.476921 1.009768
+ -3.274052 2.513359 -0.031406
+ 1.094765 2.326408 1.464004E-16
+!entry.AR2.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 0 0 0 0 0 0
+!entry.AR2.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "AR2" 1 59 1 "?" 0
+!entry.AR2.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.AR2.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.AR2.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
