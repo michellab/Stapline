@@ -1,0 +1,24 @@
+addAtomTypes {{ "CU" "C" "sp3" }}
+
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+
+loadoff AR1.lib
+loadoff AR2.lib
+loadoff AS1.lib
+loadoff AS2.lib
+
+loadamberparams 			add-ff.frcmod
+
+pep = sequence {ACE ALA AR1 ALA ALA ALA AR2 ALA NHE }
+#pep = sequence {ALA AR1 ALA ALA ALA AR2 ALA }
+#loadpdb peptide-without-sidechains.pdb
+
+
+bond pep.3.CY pep.7.CY
+select pep
+relax pep
+
+savepdb pep  peptide.pdb
+saveamberparm pep system.prmtop system.rst7
+quit

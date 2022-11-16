@@ -1,0 +1,24 @@
+addAtomTypes {{ "CJ" "C" "sp3" }}
+
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+
+
+
+loadoff COA_stapled.lib
+loadoff COB_stapled.lib
+
+
+loadamberparams 			COB-stapled.frcmod
+
+pep = sequence {ACE ALA COA ALA ALA ALA COB ALA NHE }
+#loadpdb peptide-without-sidechains.pdb
+
+
+bond pep.3.CY pep.7.SY
+select pep
+relax pep
+
+savepdb pep  peptide.pdb
+saveamberparm pep system.prmtop system.rst7
+quit
