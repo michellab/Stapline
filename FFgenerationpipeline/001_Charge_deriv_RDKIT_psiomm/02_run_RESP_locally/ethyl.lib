@@ -1,0 +1,75 @@
+!!index array str
+ "ETH"
+!entry.ETH.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "CY" "CT" 0 1 196608 1 6 0.0
+ "C2" "CT" 0 1 196608 2 6 0.0
+ "H3" "HT" 0 1 196608 3 1 0.0
+ "H5" "HT" 0 1 196608 5 1 0.0
+ "H6" "HT" 0 1 196608 6 1 0.0
+ "H7" "HT" 0 1 196608 7 1 0.0
+ "H8" "HT" 0 1 196608 8 1 0.0
+!entry.ETH.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "CY" "CT" 0 -1 0.0
+ "C2" "CT" 0 -1 0.0
+ "H3" "HT" 0 -1 0.0
+ "H5" "HT" 0 -1 0.0
+ "H6" "HT" 0 -1 0.0
+ "H7" "HT" 0 -1 0.0
+ "H8" "HT" 0 -1 0.0
+!entry.ETH.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.ETH.unit.childsequence single int
+ 2
+!entry.ETH.unit.connect array int
+ 0
+ 0
+!entry.ETH.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 2 1
+ 1 3 1
+ 1 4 1
+ 2 5 1
+ 2 6 1
+ 2 7 1
+!entry.ETH.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+!entry.ETH.unit.name single str
+ "ETH"
+!entry.ETH.unit.positions table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 1.500000 0.0 0.0
+ -0.333808 0.942641 0.0
+ -0.333808 -0.472327 -0.815769
+ 1.833808 0.471320 0.816351
+ 1.833808 0.471320 -0.816351
+ 1.833808 -0.942641 -1.269182E-06
+!entry.ETH.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 0 0 0 0 0 0
+!entry.ETH.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "ETH" 1 9 1 "?" 0
+!entry.ETH.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.ETH.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.ETH.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
