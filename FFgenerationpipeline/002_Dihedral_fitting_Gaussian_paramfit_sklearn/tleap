@@ -1,0 +1,27 @@
+-I: Adding /Users/Marie/miniconda3/envs/p4env/dat/leap/prep to search path.
+-I: Adding /Users/Marie/miniconda3/envs/p4env/dat/leap/lib to search path.
+-I: Adding /Users/Marie/miniconda3/envs/p4env/dat/leap/parm to search path.
+-I: Adding /Users/Marie/miniconda3/envs/p4env/dat/leap/cmd to search path.
+-f: Source temp.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./temp.in
+----- Source: /Users/Marie/miniconda3/envs/p4env/dat/leap/cmd/leaprc.protein.ff14SB
+----- Source of /Users/Marie/miniconda3/envs/p4env/dat/leap/cmd/leaprc.protein.ff14SB done
+Log file: ./leap.log
+Loading parameters: /Users/Marie/miniconda3/envs/p4env/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /Users/Marie/miniconda3/envs/p4env/dat/leap/parm/frcmod.ff14SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff14SB protein backbone and sidechain parameters
+Loading library: /Users/Marie/miniconda3/envs/p4env/dat/leap/lib/amino12.lib
+Loading library: /Users/Marie/miniconda3/envs/p4env/dat/leap/lib/aminoct12.lib
+Loading library: /Users/Marie/miniconda3/envs/p4env/dat/leap/lib/aminont12.lib
+
+/Users/Marie/miniconda3/envs/p4env/bin/teLeap: Fatal Error!
+Could not open file amber.frcmod: not found
+
+Exiting LEaP: Errors = 1; Warnings = 0; Notes = 0.

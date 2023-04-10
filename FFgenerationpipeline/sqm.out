@@ -1,0 +1,252 @@
+            --------------------------------------------------------
+                             AMBER SQM VERSION 17
+ 
+                                     By
+              Ross C. Walker, Michael F. Crowley, Scott Brozell,
+                         Tim Giese, Andreas W. Goetz,
+                        Tai-Sung Lee and David A. Case
+ 
+            --------------------------------------------------------
+ 
+
+--------------------------------------------------------------------------------
+  QM CALCULATION INFO
+--------------------------------------------------------------------------------
+
+| QMMM: Citation for AMBER QMMM Run:
+| QMMM: R.C. Walker, M.F. Crowley and D.A. Case, J. COMP. CHEM. 29:1019, 2008
+
+QMMM: SINGLET STATE CALCULATION
+QMMM: RHF CALCULATION, NO. OF DOUBLY OCCUPIED LEVELS = 60
+
+| QMMM: *** Selected Hamiltonian *** 
+| QMMM: AM1         
+
+| QMMM: *** Parameter sets in use ***
+| QMMM: C : M.J.S.DEWAR et al. JACS, 107, 3902, (1985)
+| QMMM: N : M.J.S.DEWAR et al. JACS, 107, 3902, (1985)
+| QMMM: O : M.J.S.DEWAR et al. JACS, 107, 3902, (1985)
+| QMMM: H : M.J.S.DEWAR et al. JACS, 107, 3902, (1985)
+
+| QMMM: *** SCF convergence criteria ***
+| QMMM: Energy change                :  0.1D-09 kcal/mol
+| QMMM: Error matrix |FP-PF|         :  0.1D+00 au
+| QMMM: Density matrix change        :  0.5D-06
+| QMMM: Maximum number of SCF cycles :     1000
+
+| QMMM: *** Diagonalization Routine Information ***
+| QMMM: Pseudo diagonalizations are allowed.
+| QMMM: Auto diagonalization routine selection is in use.
+| QMMM:
+| QMMM: Timing diagonalization routines:
+| QMMM:                              norbs =      108
+| QMMM:    diag iterations used for timing =       10
+| QMMM:
+| QMMM:              Internal diag routine = 0.019960 seconds
+| QMMM:                 Dspev diag routine = 0.022876 seconds
+| QMMM:                Dspevd diag routine = 0.015877 seconds
+| QMMM:                Dspevx diag routine = 0.078858 seconds
+| QMMM:                 Dsyev diag routine = 0.024993 seconds
+| QMMM:                Dsyevd diag routine = 0.018861 seconds
+| QMMM:                Dsyevr diag routine = 0.019854 seconds
+| QMMM:
+| QMMM:                Pseudo diag routine = 0.009456 seconds
+| QMMM:
+| QMMM: Using dspevd routine (diag_routine=3).
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1        1      C        2.2330    2.0580    3.1010
+  QMMM:     2        2      N        2.2010    1.5260    1.7630
+  QMMM:     3        3      C        2.7960    0.3210    1.4560
+  QMMM:     4        4      O        3.4470   -0.3350    2.2710
+  QMMM:     5        5      C        2.5780   -0.1690    0.0090
+  QMMM:     6        6      C        1.2560   -0.9370   -0.1480
+  QMMM:     7        7      C        0.0270   -0.0400   -0.0040
+  QMMM:     8        8      C       -1.2710   -0.7620   -0.3720
+  QMMM:     9        9      C       -2.5200    0.0760   -0.0530
+  QMMM:    10       10      N       -2.6020    1.2840   -0.8720
+  QMMM:    11       11      C       -2.1070    2.4950   -0.4620
+  QMMM:    12       12      C       -2.4160    3.6380   -1.3910
+  QMMM:    13       13      O       -1.4560    2.6500    0.5670
+  QMMM:    14       14      C       -3.8000   -0.7440   -0.3220
+  QMMM:    15       15      O       -4.5620   -0.4790   -1.2520
+  QMMM:    16       16      N       -4.0060   -1.7940    0.5480
+  QMMM:    17       17      C       -5.2010   -2.5960    0.4680
+  QMMM:    18       18      N        3.7090   -1.0380   -0.3090
+  QMMM:    19       19      C        4.1230   -1.2650   -1.5950
+  QMMM:    20       20      C        5.3230   -2.1640   -1.7140
+  QMMM:    21       21      O        3.5690   -0.7830   -2.5770
+  QMMM:    22       22      H        1.4710    1.5480    3.6970
+  QMMM:    23       23      H        2.0120    3.1270    3.0560
+  QMMM:    24       24      H        3.2160    1.8980    3.5520
+  QMMM:    25       25      H        1.5490    1.9440    1.1080
+  QMMM:    26       26      H        2.6100    0.6910   -0.6700
+  QMMM:    27       27      H        1.2300   -1.4170   -1.1340
+  QMMM:    28       28      H        1.2030   -1.7460    0.5920
+  QMMM:    29       29      H        0.1530    0.8380   -0.6470
+  QMMM:    30       30      H       -0.0510    0.3070    1.0320
+  QMMM:    31       31      H       -1.3160   -1.7110    0.1750
+  QMMM:    32       32      H       -1.2560   -1.0190   -1.4390
+  QMMM:    33       33      H       -2.5250    0.3690    1.0040
+  QMMM:    34       34      H       -3.2620    1.2440   -1.6450
+  QMMM:    35       35      H       -3.0790    4.3430   -0.8810
+  QMMM:    36       36      H       -1.4830    4.1380   -1.6630
+  QMMM:    37       37      H       -2.9040    3.2970   -2.3080
+  QMMM:    38       38      H       -3.4690   -1.8270    1.4050
+  QMMM:    39       39      H       -5.4380   -2.8230   -0.5750
+  QMMM:    40       40      H       -6.0280   -2.0380    0.9160
+  QMMM:    41       41      H       -5.0360   -3.5230    1.0230
+  QMMM:    42       42      H        4.2180   -1.4240    0.4810
+  QMMM:    43       43      H        5.6630   -2.5210   -0.7380
+  QMMM:    44       44      H        6.1390   -1.6100   -2.1860
+  QMMM:    45       45      H        5.0610   -3.0300   -2.3280
+
+--------------------------------------------------------------------------------
+  RESULTS
+--------------------------------------------------------------------------------
+
+      iter         sqm energy              rms gradient
+      ----    -------------------    -----------------------
+xmin    10     -176.3025 kcal/mol        0.3978 kcal/(mol*A)
+xmin    20     -176.8013 kcal/mol        0.5855 kcal/(mol*A)
+xmin    30     -177.1571 kcal/mol        0.5804 kcal/(mol*A)
+xmin    40     -177.4309 kcal/mol        0.1770 kcal/(mol*A)
+xmin    50     -177.4721 kcal/mol        0.1521 kcal/(mol*A)
+xmin    60     -177.4809 kcal/mol        0.0202 kcal/(mol*A)
+xmin    70     -177.4821 kcal/mol        0.0143 kcal/(mol*A)
+xmin    80     -177.4832 kcal/mol        0.0173 kcal/(mol*A)
+xmin    90     -177.4835 kcal/mol        0.0061 kcal/(mol*A)
+xmin   100     -177.4840 kcal/mol        0.0072 kcal/(mol*A)
+xmin   110     -177.4841 kcal/mol        0.0102 kcal/(mol*A)
+xmin   120     -177.4842 kcal/mol        0.0037 kcal/(mol*A)
+xmin   130     -177.4842 kcal/mol        0.0021 kcal/(mol*A)
+xmin   140     -177.4842 kcal/mol        0.0012 kcal/(mol*A)
+  ... geometry converged !
+ 
+ Final MO eigenvalues (eV):
+ -40.8273  -40.3361  -39.2689  -38.9214  -36.9145  -35.8742  -35.6410  -35.3113
+ -34.2828  -32.2034  -30.9210  -29.6803  -28.5719  -27.4714  -25.8885  -23.9400
+ -22.2050  -21.8699  -21.5007  -21.4600  -21.0984  -18.9871  -18.7433  -18.0201
+ -17.5740  -17.1534  -17.0286  -16.7125  -16.5547  -16.0913  -15.9520  -15.8851
+ -15.6915  -15.4443  -15.0439  -14.7923  -14.7508  -14.3646  -14.2302  -13.9956
+ -13.7287  -13.5728  -13.5356  -13.2262  -13.1991  -13.1579  -13.0886  -12.8387
+ -12.7300  -12.5847  -12.3471  -11.7084  -11.1950  -11.0981  -11.0281  -10.8539
+ -10.3030  -10.2570   -9.9651   -9.8378    1.0207    1.1553    1.2528    1.4553
+   1.4689    1.9191    2.0970    2.3855    3.0535    3.3189    3.3954    3.4354
+   3.5211    3.6271    3.6707    3.7381    3.8397    3.8883    3.9055    3.9163
+   4.0440    4.0558    4.0735    4.1272    4.2680    4.3181    4.3637    4.3667
+   4.3932    4.4315    4.4644    4.5395    4.5645    4.7273    4.7904    4.9296
+   5.0062    5.0972    5.2579    5.4734    5.9127    6.0561    6.2303    6.3524
+   6.7350    6.7962    7.0208    7.1227
+
+ Heat of formation   =       -177.48424683 kcal/mol  (       -7.69629447 eV)
+
+ Total SCF energy    =     -94696.16361878 kcal/mol  (    -4106.33379380 eV)
+ Electronic energy   =    -645585.04171563 kcal/mol  (   -27994.66812869 eV)
+ Core-core repulsion =     550888.87809686 kcal/mol  (    23888.33433489 eV)
+ 
+    Atomic Charges for Step       1 :
+  Atom    Element       Mulliken Charge
+     1      C                 -0.081
+     2      N                 -0.362
+     3      C                  0.273
+     4      O                 -0.388
+     5      C                  0.007
+     6      C                 -0.167
+     7      C                 -0.166
+     8      C                 -0.171
+     9      C                  0.018
+    10      N                 -0.378
+    11      C                  0.311
+    12      C                 -0.241
+    13      O                 -0.395
+    14      C                  0.290
+    15      O                 -0.374
+    16      N                 -0.378
+    17      C                 -0.078
+    18      N                 -0.366
+    19      C                  0.302
+    20      C                 -0.242
+    21      O                 -0.371
+    22      H                  0.066
+    23      H                  0.078
+    24      H                  0.110
+    25      H                  0.237
+    26      H                  0.141
+    27      H                  0.101
+    28      H                  0.095
+    29      H                  0.092
+    30      H                  0.097
+    31      H                  0.090
+    32      H                  0.102
+    33      H                  0.125
+    34      H                  0.248
+    35      H                  0.105
+    36      H                  0.118
+    37      H                  0.105
+    38      H                  0.228
+    39      H                  0.119
+    40      H                  0.072
+    41      H                  0.070
+    42      H                  0.237
+    43      H                  0.103
+    44      H                  0.117
+    45      H                  0.103
+ Total Mulliken Charge =      -0.000
+ 
+                  X        Y        Z     TOTAL  
+  QM DIPOLE    -2.330   -0.966    0.936    2.690
+ 
+ Final Structure
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1        1      C        2.1777    1.9767    2.9106
+  QMMM:     2        2      N        2.1502    1.4069    1.5993
+  QMMM:     3        3      C        2.6158    0.1381    1.3420
+  QMMM:     4        4      O        3.1911   -0.5456    2.2154
+  QMMM:     5        5      C        2.4396   -0.4059   -0.1013
+  QMMM:     6        6      C        1.1068   -1.1758   -0.1601
+  QMMM:     7        7      C       -0.0627   -0.2292   -0.0102
+  QMMM:     8        8      C       -1.3695   -0.8823   -0.4029
+  QMMM:     9        9      C       -2.5547    0.0453   -0.0730
+  QMMM:    10       10      N       -2.6182    1.2430   -0.8708
+  QMMM:    11       11      C       -1.9691    2.4084   -0.5188
+  QMMM:    12       12      C       -2.1558    3.6008   -1.4242
+  QMMM:    13       13      O       -1.2575    2.4691    0.5070
+  QMMM:    14       14      C       -3.8479   -0.7893   -0.2557
+  QMMM:    15       15      O       -4.4796   -0.7846   -1.3316
+  QMMM:    16       16      N       -4.2488   -1.5462    0.8198
+  QMMM:    17       17      C       -5.4030   -2.3875    0.7916
+  QMMM:    18       18      N        3.5639   -1.2287   -0.4753
+  QMMM:    19       19      C        4.4149   -0.8770   -1.5120
+  QMMM:    20       20      C        5.6655   -1.7041   -1.6811
+  QMMM:    21       21      O        4.1329    0.0512   -2.2958
+  QMMM:    22       22      H        1.1699    1.9036    3.4031
+  QMMM:    23       23      H        2.4605    3.0606    2.8319
+  QMMM:    24       24      H        2.9316    1.4421    3.5481
+  QMMM:    25       25      H        1.5470    1.8376    0.9347
+  QMMM:    26       26      H        2.3853    0.4575   -0.8344
+  QMMM:    27       27      H        1.0353   -1.7063   -1.1465
+  QMMM:    28       28      H        1.0815   -1.9537    0.6463
+  QMMM:    29       29      H        0.1023    0.6830   -0.6449
+  QMMM:    30       30      H       -0.1409    0.1248    1.0531
+  QMMM:    31       31      H       -1.4997   -1.8386    0.1680
+  QMMM:    32       32      H       -1.3682   -1.1360   -1.4943
+  QMMM:    33       33      H       -2.4518    0.3702    1.0088
+  QMMM:    34       34      H       -3.1370    1.1926   -1.7179
+  QMMM:    35       35      H       -3.2367    3.8714   -1.4985
+  QMMM:    36       36      H       -1.5923    4.4660   -0.9973
+  QMMM:    37       37      H       -1.7641    3.3800   -2.4465
+  QMMM:    38       38      H       -3.7159   -1.5227    1.6553
+  QMMM:    39       39      H       -5.9128   -2.3136   -0.2064
+  QMMM:    40       40      H       -6.1244   -2.0756    1.5946
+  QMMM:    41       41      H       -5.1056   -3.4562    0.9715
+  QMMM:    42       42      H        3.8956   -1.8509    0.2273
+  QMMM:    43       43      H        6.3170   -1.6127   -0.7787
+  QMMM:    44       44      H        6.2240   -1.3304   -2.5735
+  QMMM:    45       45      H        5.4069   -2.7790   -1.8374
+
+           --------- Calculation Completed ----------
+
