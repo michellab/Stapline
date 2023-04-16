@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB 
-loadAmberParams amber.frcmod 
-input = loadmol2 sustiva.mol2 
- saveAmberParm  input  input.prmtop input.inpcrd
- quit
