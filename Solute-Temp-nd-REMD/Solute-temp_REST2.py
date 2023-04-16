@@ -30,8 +30,6 @@ REST2 scaling factor down to 0.5; and default HMassRepartition by parmed.tools.
 
 The script relies on ParmEd and Numpy tools.
 
-Marie Bluntzer
-s1772078@ed.ac.uk
 
 version 0.2                                                   24/10/2019
 ================================================================================
