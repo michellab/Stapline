@@ -5,7 +5,7 @@ import parmed
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-import check_structure
+import parameteriser.check_structure as check_structure
 
 
 def build_molecule_from_smiles(smiles):

@@ -410,7 +410,7 @@ parser.add_argument('--input',  type=str, help='an sdf file containning few conf
 parser.add_argument('--Calpha',  type=int,  help='Calpha of the molecule, necessary ! ')
 parser.add_argument('--CY',  type=int,  default=0,  help='last atom in side chain for the librairy  ')
 parser.add_argument('--last',  nargs='+', default=[], help='last atom in side chain to take in account for partial charge calculation, default:none ')
-parser.add_argument('--name_res', default='MOL' , help='name of your residu , default MOL' )
+parser.add_argument('--name_res', default='MOL' , help='name of your residue , default MOL' )
 args = parser.parse_args()
 
 
