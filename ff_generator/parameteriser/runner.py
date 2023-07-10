@@ -1,0 +1,75 @@
+import os
+from pathlib import Path
+from typing import Optional
+
+import rdkit
+
+from parameteriser.prep import build_molecule_from_smiles
+from parameteriser.run_resp import run_psiresp
+
+
+def in_notebook():
+    # Simploe functtion to know if the code is executed from  nmotebook
+    try:
+        from IPython import get_ipython
+
+        if "IPKernelApp" not in get_ipython().config:  # pragma: no cover
+            return False
+    except ImportError:
+        return False
+    except AttributeError:
+        return False
+    return True
+
+
+class FF_Genenerator:
+    def __init__(self, input_string, config):
+        # config=Optional(str | Path)):
+        self.input_string: str = input_string
+
+        mol, _, backbone_list, capping_list = build_molecule_from_smiles(input_string)
+        self.mol: rdkit.Molecule = mol
+        self.backbone_list: list = backbone_list
+        self.capping_list: list = capping_list
+
+        self.charges: list
+        # config: str | Path
+
+    def run_qm_resp(self):
+        mol, _, backbone_list, capping_list = build_molecule_from_smiles(
+            self.input_string
+        )
+
+        constraint_capping = run_psiresp(mol, backbone_list, capping_list)
+        without_constraint = run_psiresp(mol, backbone_list, [])
+        print(constraint_capping)
+        atom_names = [
+            f"{x}{i}"
+            for i, x in enumerate([atom.GetSymbol() for atom in mol.GetAtoms()], 1)
+        ]
+
+    def run_resp(self, run_qm):
+        print("heheo")
+        constraint_capping = run_psiresp(
+            self.mol, self.backbone_list, self.capping_list
+        )
+        print(f"running the QM now { run_qm}")
+        if run_qm == True:
+            os.system("bash resp_qm_calculations/single_point/run_single_point.sh")
+            constraint_capping = run_psiresp(
+                self.mol, self.backbone_list, self.capping_list
+            )
+
+        return constraint_capping
+
+    def produce_library(self):
+        pass
+
+    def prepare_dih_fit(self):
+        pass
+
+    def run_qm_dih_fit(self):
+        pass
+
+    def run_fit(self):
+        pass

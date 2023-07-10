@@ -1,0 +1,7 @@
+python==3.10
+ambertools==18.0
+rdkit==2022.09.5
+parmed==4.0.0
+psi4==1.6.1
+psiresp==0.4.2
+pytorch==1.12.1

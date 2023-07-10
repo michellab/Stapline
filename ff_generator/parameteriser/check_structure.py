@@ -1,6 +1,8 @@
 from rdkit import Chem
 from rdkit.Chem.Draw import rdMolDraw2D
 
+from parameteriser.run_resp import run_resp
+
 
 def rename_atoms(mol):
     return mol

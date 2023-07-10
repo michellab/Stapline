@@ -1,25 +1,23 @@
-# Custom_residus_parametrization-
+# Custom_residus_parametrization 
 
 Workflow:
 
- 001 Use Knime and Rdkit to produce inputs for R.E.D
-	-inputs can be given as sdf file or drawn directly from Marvin interface
-	-outputs R.E.D readable files
+ Follow example in examples/
+	-inputs are given as SMILE strings or mol2 formats.
+  The user need to had capping groups to the smiles
+  options can be given (basis set /functional... ) see config.json in the example folder
 
-	
- !!! After 001 some manual steps are requiered : 
-	-elimination of unwanted fragments 
-	-rename atoms : CA , CB ... 
-	-partial charges check and reweighting 
+Returns:
 
- 002 Production of the .lib file containing charges and atoms types 
-     Python script to produce gaussians inputs files offering a sampling over each dihedral
-     
-
- 003 Paramfit Module 
-
- 004 small Simulations production for ramachadran plotting
+ Amber compatible .lib file containing multi RESP charges, and additional frcmod file containing dihadral bond and angle parameters.  antechamber is used to provide atoms types.
 
 
- !!! Advisabled manual Step : change atomtypes and RESIDUS name in .lib and .frcmod if overlapping with AMBER atomtypes 
+Requirements:
 
+  python==3.10
+  ambertools==18.0
+  rdkit==2022.09.5
+  parmed==4.0.0
+  psi4==1.6.1
+  psiresp==0.4.2
+  pytorch==1.12.1
