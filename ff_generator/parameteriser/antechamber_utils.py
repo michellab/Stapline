@@ -204,6 +204,46 @@ def align_antechamber(pdb_path, antechamber_output):
     return np.asarray(inp["GAFF"])
 
 
+def makeamberlibfile(frag, parm, to_removefromlib, resname="MOL"):
+    tleapinput = open("tleap.in", "w")
+
+    subprocess.check_output(
+        "sed '/^DIHE/,/^NONBON/{/^NONBON/!d}'  parmchk2_all.frcmod > parmchk2.frcmod  "
+    )
+    tleapinput.write("loadAmberParams parmchk2.frcmod  \n")
+    tleapinput.write("source leaprc.protein.ff14SB \n")
+    tleapinput.write("%s = loadmol2 newcharges.mol2 \n" % (resname))
+    for atom in parm.atoms:
+        if atom.idx not in frag or atom.idx in to_removefromlib:
+            tleapinput.write("remove %s %s.1.%s\n" % (resname, resname, atom.idx + 1))
+    # for atom  in to_removefromlib :
+    # tleapinput.write('remove %s %s.1.%s\n' %(resname, resname, atom) )
+    tleapinput.write("set %s head %s.1.N \n" % (resname, resname))
+    tleapinput.write("set %s tail %s.1.C \n" % (resname, resname))
+    tleapinput.write(
+        'impose %s { 1 2 3 } { { "N" "CA" "C" "O" 0.0 } { "H" "N" "CA" "C"  0.0 } { "CA" "CB" "CC" "CD" 180 } { "CB" "CC" "CD" "CE" 180 } } \n'
+        % (resname)
+    )
+    tleapinput.write("saveoff  %s %s.lib \n" % (resname, resname))
+    # os.system('grep -v ATOM  1.pdb > model.pdb')
+
+    tleapinput.write("seq = sequence { ACE %s NME }\n" % (resname))
+    tleapinput.write("savemol2 seq ACE-%s-NME.mol2 1 \n" % (resname))
+    tleapinput.write(
+        "loadoff %s/ethyl.lib  \n" % (os.path.dirname(os.path.abspath(__file__)))
+    )
+    tleapinput.write("seq = combine { ETH  seq } \n")
+    tleapinput.write("bond seq.1.CY seq.3.CY \n")
+    tleapinput.write("select seq.1 \n")
+    tleapinput.write("relax seq.1 \n")
+    tleapinput.write("select seq \n")
+    tleapinput.write("relax seq\n")
+    tleapinput.write("savemol2 seq ACE-%s-NME.mol2 1 \n" % (resname))
+    tleapinput.write("quit")
+    tleapinput.close()
+    subprocess.check_output("tleap -f tleap.in")
+
+
 if __name__ == "__main__":
     from prep import build_molecule_from_smiles
 
