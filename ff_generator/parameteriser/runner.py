@@ -49,18 +49,18 @@ class FF_Genenerator:
         ]
 
     def run_resp(self, run_qm):
-        print("heheo")
         constraint_capping = run_psiresp(
             self.mol, self.backbone_list, self.capping_list
         )
         print(f"running the QM now { run_qm}")
         if run_qm == True:
-            os.system("bash resp_qm_calculations/single_point/run_single_point.sh")
+            os.chdir("resp_qm_calculations/single_point/")
+            os.system("bash run_single_point.sh")
+
             constraint_capping = run_psiresp(
                 self.mol, self.backbone_list, self.capping_list
             )
-
-        return constraint_capping
+        self.charges = constraint_capping
 
     def produce_library(self):
         pass
