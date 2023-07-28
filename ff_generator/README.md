@@ -14,7 +14,7 @@ Returns:
 
 Requirements:
 
-  python==3.10
+  python==3.8
   ambertools==18.0
   rdkit==2022.09.5
   parmed==4.0.0
