@@ -1,7 +1,3 @@
-# stapline
-# version 0.9
-# Pipeline for the setup  of stapled peptides
-Comprise the stapled residue AMBER compatible libraries  Stapline-FF
-A pipeline for unatural amino-acid parameterisation
+# Stapline
 
-mv
+A pipeline for the parameterisation and simulations of stapled peptides
