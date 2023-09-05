@@ -3,9 +3,10 @@ from pathlib import Path
 from typing import Optional
 
 import rdkit
+import psiresp
 
 from parameteriser.prep import build_molecule_from_smiles
-from parameteriser.run_resp import run_psiresp
+#from parameteriser.run_resp import run_psiresp
 
 
 def in_notebook():
@@ -31,6 +32,7 @@ class FF_Genenerator:
         self.mol: rdkit.Molecule = mol
         self.backbone_list: list = backbone_list
         self.capping_list: list = capping_list
+        self.psiresp_job: psiresp.job.Job
 
         self.charges: list
         # config: str | Path
@@ -61,6 +63,40 @@ class FF_Genenerator:
                 self.mol, self.backbone_list, self.capping_list
             )
         self.charges = constraint_capping
+
+
+    def get_resp_job_eva(self):
+        psirespmol = psiresp.Molecule.from_rdkit(self.mol)
+        constraints = psiresp.ChargeConstraintOptions(symmetric_atoms_are_equivalent=True)
+        constraints.add_charge_sum_constraint_for_molecule(psirespmol, charge=0, indices=self.capping_list)
+
+        geometry_options = psiresp.QMGeometryOptimizationOptions(
+        method="b3lyp",
+        basis="sto-3g")
+
+        esp_options = psiresp.QMEnergyOptions(
+        method="b3lyp",
+        basis="sto-3g")
+
+        job_multi = psiresp.Job(
+            molecules=[psirespmol],
+            charge_constraints=constraints,
+            qm_optimization_options=geometry_options,
+            qm_esp_options=esp_options,
+            working_directory="resp_qm_calculations")
+        
+        self.psiresp_job = job_multi
+
+    def run_resp_job_eva(self, resp_job):
+        resp_job.run()
+    
+    def run_qm_get_charges_eva(self, resp_job):
+        os.chdir("resp_qm_calculations/single_point/")
+        os.system("bash run_single_point.sh")
+        os.chdir("../../")
+        resp_job.run()
+        self.charges = resp_job.molecules[0].stage_2_restrained_charges
+        
 
     def produce_library(self):
         pass
