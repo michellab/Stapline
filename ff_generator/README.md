@@ -21,3 +21,5 @@ Requirements:
   psi4==1.6.1
   psiresp==0.4.2
   pytorch==1.12.1
+
+  Note: pydantic needs to be downgraded to 1.10.8
