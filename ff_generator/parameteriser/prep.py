@@ -13,8 +13,10 @@ def build_molecule_from_smiles(smiles):
     mol, res_type, backbone_list, capping_list = check_structure.check_smiles(smiles)
     print(capping_list)
 
-    AllChem.EmbedMultipleConfs(mol, numConfs=1)
-    AllChem.MMFFOptimizeMolecule(mol)
+    AllChem.EmbedMultipleConfs(mol, numConfs=40) # number of conformers determined by consecutive runs comparison on S-pentenyl and R-pentenyl glycine
+    rmslist = []
+    AllChem.AlignMolConformers(mol, RMSlist=rmslist)
+    AllChem.MMFFOptimizeMolecule(mol, maxIters=1000) # include minimisation iterations to make sure all conformers have been minimised
 
     return mol, res_type, backbone_list, capping_list
 
