@@ -35,6 +35,8 @@ class FF_Genenerator:
         self.psiresp_job: psiresp.job.Job
 
         self.charges: list
+
+        #self.conformers: 
         # config: str | Path
 
     def run_qm_resp(self):
@@ -65,18 +67,20 @@ class FF_Genenerator:
         self.charges = constraint_capping
 
 
-    def get_resp_job_eva(self):
+    def get_resp_job_eva(self): 
         psirespmol = psiresp.Molecule.from_rdkit(self.mol)
         constraints = psiresp.ChargeConstraintOptions(symmetric_atoms_are_equivalent=True)
         constraints.add_charge_sum_constraint_for_molecule(psirespmol, charge=0, indices=self.capping_list)
 
+        psirespmol.optimize_geometry=True
+
         geometry_options = psiresp.QMGeometryOptimizationOptions(
-        method="b3lyp",
-        basis="sto-3g")
+        method="hf",
+        basis="6-31g*")
 
         esp_options = psiresp.QMEnergyOptions(
-        method="b3lyp",
-        basis="sto-3g")
+        method="hf",
+        basis="6-31g*")
 
         job_multi = psiresp.Job(
             molecules=[psirespmol],
@@ -88,6 +92,14 @@ class FF_Genenerator:
         self.psiresp_job = job_multi
 
     def run_resp_job_eva(self, resp_job):
+        resp_job.generate_conformers()
+        resp_job.generate_orientations()
+        resp_job.run()
+
+    def run_resp_optimisation_eva(self, resp_job):
+        os.chdir("resp_qm_calculations/optimization/")
+        os.system("bash run_optimization.sh")
+        os.chdir("../../")
         resp_job.run()
     
     def run_qm_get_charges_eva(self, resp_job):
