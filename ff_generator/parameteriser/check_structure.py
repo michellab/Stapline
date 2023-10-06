@@ -13,20 +13,22 @@ def get_match_bond_indices(mol, match_atom_indices):
     frag_types = []
     for query_bond in mol.GetBonds():
         if (
-            query_bond.GetBeginAtomIdx() in match_atom_indices
+            query_bond.GetBeginAtomIdx() in match_atom_indices # beginning atom is backbone but ending atom is not
             and query_bond.GetEndAtomIdx() not in match_atom_indices
         ):
             bond_indices.append(query_bond.GetIdx())
-            at = query_bond.GetBeginAtomIdx()
-            frag_types.append(get_type(mol, at))
+            begin_at = query_bond.GetBeginAtomIdx()
+            end_at = query_bond.GetEndAtomIdx()
+            frag_types.append([end_at, get_type(mol, begin_at)])
 
         elif (
-            query_bond.GetBeginAtomIdx() not in match_atom_indices
+            query_bond.GetBeginAtomIdx() not in match_atom_indices # beginning atom is not backbone but ending atom is
             and query_bond.GetEndAtomIdx() in match_atom_indices
         ):
             bond_indices.append(query_bond.GetIdx())
-            at = query_bond.GetEndAtomIdx()
-            frag_types.append(get_type(mol, at))
+            begin_at = query_bond.GetBeginAtomIdx()
+            end_at = query_bond.GetEndAtomIdx()
+            frag_types.append([begin_at, get_type(mol, end_at)])
     return bond_indices, frag_types
 
 
@@ -35,7 +37,7 @@ def get_type(mol, at):
         mol.GetAtomWithIdx(at).GetSymbol() == "C"
         and str(mol.GetAtomWithIdx(at).GetHybridization()) == "SP2"
     ):
-        print(mol.GetAtomWithIdx(at).GetHybridization())
+        #print(mol.GetAtomWithIdx(at).GetHybridization())
         return "capping"
     elif mol.GetAtomWithIdx(at).GetSymbol() == "N":
         return "capping"
@@ -45,7 +47,7 @@ def get_type(mol, at):
     ):
         return "sidechain"
     else:
-        raise Exception("Probleme parsing the structure")
+        raise Exception("Problem parsing the structure")
 
 
 def check_smiles(smiles):
@@ -54,28 +56,40 @@ def check_smiles(smiles):
     mol = Chem.AddHs(mol)
 
     if mol.HasSubstructMatch(patt_backbone) is False:
-        raise Exception("Could not recognise backbone pattern in your molecule")
+        raise Exception("Could not recognise a backbone pattern in your molecule")
 
     if (len(mol.GetSubstructMatches(patt_backbone))) == 1:
-        print("Treating your molecule as a unstapled residue")
+        print("Treating your molecule as an unstapled residue")
 
         atom_indices = mol.GetSubstructMatch(patt_backbone)
         bond_indices, frag_types = get_match_bond_indices(mol, atom_indices)
-        mol1_f = Chem.FragmentOnBonds(mol, bond_indices, addDummies=False)
-        fragments_mols = Chem.GetMolFrags(mol1_f, sanitizeFrags=False)
-        frag_types.insert(
-            fragments_mols.index(tuple(sorted(atom_indices))), "backbone"
-        )
+        mol_fragmented = Chem.FragmentOnBonds(mol, bond_indices, addDummies=False)
+        fragments = Chem.GetMolFrags(mol_fragmented, sanitizeFrags=False)
+        #frag_types.insert(fragments_mols.index(tuple(sorted(atom_indices))), "backbone")
         backbone, capping_groups, sidechain = [], [], []
 
-        for t, frag in zip(frag_types, fragments_mols):
-            if t == "capping":
-                capping_groups.extend(frag)
-            elif t == "backbone":
-                backbone.extend(frag)
-            elif t == "sidechain":
-                sidechain.extend(frag)
-            return (mol, 1, backbone, capping_groups)
+        # now need to separate the fragments into backbone, sidechain and capping
+        for i in atom_indices:
+            backbone.append(i)
+        
+        for frag in fragments:
+            for frag_type in frag_types:
+                if frag_type[0] in frag:
+                    if frag_type[1] == 'capping':
+                        for i in frag:
+                            capping_groups.append(i)
+                    elif frag_type[1] == 'sidechain':
+                        for i in frag:
+                            sidechain.append(i)
+
+        #for t, frag in zip(frag_types, fragments_mols):
+        #    if t == "capping":
+        #        capping_groups.extend(frag)
+        #    elif t == "backbone":
+        #        backbone.extend(frag)
+        #    elif t == "sidechain":
+        #        sidechain.extend(frag)
+        return (mol, 1, backbone, capping_groups, sidechain)
         
     elif (len(mol.GetSubstructMatches(patt_backbone))) == 2:
         print("Treating your residue as a stapled residue")
@@ -86,34 +100,47 @@ def check_smiles(smiles):
         bond_indices, frag_types = get_match_bond_indices(
             mol, atom_indices_1 + atom_indices_2
         )
-        mol1_f = Chem.FragmentOnBonds(mol, bond_indices, addDummies=False)
-        fragments_mols = Chem.GetMolFrags(mol1_f, sanitizeFrags=False)
+        mol_fragmented = Chem.FragmentOnBonds(mol, bond_indices, addDummies=False)
+        fragments = Chem.GetMolFrags(mol_fragmented, sanitizeFrags=False)
 
-        print(fragments_mols)
-        print(sorted(atom_indices_1))
-        frag_types.insert(
-            fragments_mols.index(tuple(sorted(atom_indices_1))), "backbone"
-        )
-        frag_types.insert(
-            fragments_mols.index(tuple(sorted(atom_indices_2))), "backbone"
-        )
+        #frag_types.insert(fragments_mols.index(tuple(sorted(atom_indices_1))), "backbone")
+        #frag_types.insert(fragments_mols.index(tuple(sorted(atom_indices_2))), "backbone")
         backbone, capping_groups, sidechain = [], [], []
 
-        for t, frag in zip(frag_types, fragments_mols):
-            if t == "capping":
-                capping_groups.extend(frag)
-            elif t == "backbone":
-                backbone.extend(frag)
-            elif t == "sidechain":
-                sidechain.extend(frag)
+        # now need to separate the fragments into backbone, sidechain and capping
+        for i in atom_indices_1+atom_indices_2:
+            backbone.append(i)
 
-        return (mol, 2, backbone, capping_groups)
+        for frag in fragments:
+            for frag_type in frag_types:
+                if frag_type[0] in frag:
+                    if frag_type[1] == 'capping':
+                        for i in frag:
+                            capping_groups.append(i)
+                    elif frag_type[1] == 'sidechain':
+                        for i in frag:
+                            sidechain.append(i)
+
+        # checking for duplicates (stapled sidechain will have duplicates as it is connected to the backbone twice)
+        backbone = list(set(backbone))
+        sidechain = list(set(sidechain))
+        capping_groups = list(set(capping_groups))
+
+        #for t, frag in zip(frag_types, fragments_mols):
+        #    if t == "capping":
+        #        capping_groups.extend(frag)
+        #    elif t == "backbone":
+        #        backbone.extend(frag)
+        #    elif t == "sidechain":
+        #        sidechain.extend(frag)
+
+        return (mol, 2, backbone, capping_groups, sidechain)
 
     else:
         raise ExceptionError(
             " 3 or more backbones fragment found in your molecule. "
-            "Your smile chain might be alright but that case in not accepted in current code."
-            " please contact developper to include it"
+            "Your SMILES chain might be alright but that case in not accepted in current code."
+            "Please contact the developers to include it."
         )
         return 0
 
