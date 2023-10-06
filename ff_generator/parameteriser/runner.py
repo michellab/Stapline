@@ -28,10 +28,11 @@ class FF_Genenerator:
         # config=Optional(str | Path)):
         self.input_string: str = input_string
 
-        mol, _, backbone_list, capping_list = build_molecule_from_smiles(input_string)
+        mol, _, backbone_list, capping_list, sidechain_list = build_molecule_from_smiles(input_string)
         self.mol: rdkit.Molecule = mol
         self.backbone_list: list = backbone_list
         self.capping_list: list = capping_list
+        self.sidechain_list: list = sidechain_list
         self.psiresp_job: psiresp.job.Job
 
         self.charges: list
