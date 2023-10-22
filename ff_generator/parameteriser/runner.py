@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Optional
 
 import rdkit
-
+from parameteriser.antechamber_utils import makeamberlibfile
 from parameteriser.prep import build_molecule_from_smiles
 from parameteriser.run_resp import run_psiresp
 
@@ -54,16 +54,17 @@ class FF_Genenerator:
         )
         print(f"running the QM now { run_qm}")
         if run_qm == True:
-            os.chdir("resp_qm_calculations/single_point/")
-            os.system("bash run_single_point.sh")
+            os.system("bash resp_qm_calculations/single_point/run_single_point.sh")
 
             constraint_capping = run_psiresp(
                 self.mol, self.backbone_list, self.capping_list
             )
         self.charges = constraint_capping
 
-    def produce_library(self):
-        pass
+    def produce_library(self, resname="RES"):
+        self.mol.write("temp.mol2")
+        parm=parmed.load("temp.mol2")
+        makeamberlibfile(frag=[], parm=parm, input_mol2="temp.mol2", to_removefromlib=self.capping_list, resname=resname)
 
     def prepare_dih_fit(self):
         pass
