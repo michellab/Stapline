@@ -95,7 +95,7 @@ def run_psiresp(mol, backbone_atoms, capping_group_atoms):
         qm_esp_options=esp_options,
         working_directory="resp_qm_calculations",
     )
-    job_multi.run()
+    job_multi.run(client="local")
     return job_multi.molecules[0].stage_2_restrained_charges
 
 
