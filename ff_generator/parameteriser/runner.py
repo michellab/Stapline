@@ -2,11 +2,13 @@ import os
 from pathlib import Path
 from typing import Optional
 
-import rdkit
 import psiresp
+import rdkit
 
+from parameteriser.antechamber_utils import makeamberlibfile
 from parameteriser.prep import build_molecule_from_smiles
-#from parameteriser.run_resp import run_psiresp
+
+# from parameteriser.run_resp import run_psiresp
 
 
 def in_notebook():
@@ -28,7 +30,13 @@ class FF_Genenerator:
         # config=Optional(str | Path)):
         self.input_string: str = input_string
 
-        mol, _, backbone_list, capping_list, sidechain_list = build_molecule_from_smiles(input_string)
+        (
+            mol,
+            _,
+            backbone_list,
+            capping_list,
+            sidechain_list,
+        ) = build_molecule_from_smiles(input_string)
         self.mol: rdkit.Molecule = mol
         self.backbone_list: list = backbone_list
         self.capping_list: list = capping_list
@@ -37,7 +45,7 @@ class FF_Genenerator:
 
         self.charges: list
 
-        #self.conformers: 
+        # self.conformers:
         # config: str | Path
 
     def run_qm_resp(self):
@@ -59,37 +67,38 @@ class FF_Genenerator:
         )
         print(f"running the QM now { run_qm}")
         if run_qm == True:
-            os.chdir("resp_qm_calculations/single_point/")
-            os.system("bash run_single_point.sh")
+            os.system("bash resp_qm_calculations/single_point/run_single_point.sh")
 
             constraint_capping = run_psiresp(
                 self.mol, self.backbone_list, self.capping_list
             )
         self.charges = constraint_capping
 
-
-    def get_resp_job_eva(self): 
+    def get_resp_job_eva(self):
         psirespmol = psiresp.Molecule.from_rdkit(self.mol)
-        constraints = psiresp.ChargeConstraintOptions(symmetric_atoms_are_equivalent=True)
-        constraints.add_charge_sum_constraint_for_molecule(psirespmol, charge=0, indices=self.capping_list)
+        constraints = psiresp.ChargeConstraintOptions(
+            symmetric_atoms_are_equivalent=True
+        )
+        constraints.add_charge_sum_constraint_for_molecule(
+            psirespmol, charge=0, indices=self.capping_list
+        )
 
-        psirespmol.optimize_geometry=True
+        psirespmol.optimize_geometry = True
 
         geometry_options = psiresp.QMGeometryOptimizationOptions(
-        method="hf",
-        basis="6-31g*")
+            method="hf", basis="6-31g*"
+        )
 
-        esp_options = psiresp.QMEnergyOptions(
-        method="hf",
-        basis="6-31g*")
+        esp_options = psiresp.QMEnergyOptions(method="hf", basis="6-31g*")
 
         job_multi = psiresp.Job(
             molecules=[psirespmol],
             charge_constraints=constraints,
             qm_optimization_options=geometry_options,
             qm_esp_options=esp_options,
-            working_directory="resp_qm_calculations")
-        
+            working_directory="resp_qm_calculations",
+        )
+
         self.psiresp_job = job_multi
 
     def run_resp_job_eva(self, resp_job):
@@ -102,17 +111,24 @@ class FF_Genenerator:
         os.system("bash run_optimization.sh")
         os.chdir("../../")
         resp_job.run()
-    
+
     def run_qm_get_charges_eva(self, resp_job):
         os.chdir("resp_qm_calculations/single_point/")
         os.system("bash run_single_point.sh")
         os.chdir("../../")
         resp_job.run()
         self.charges = resp_job.molecules[0].stage_2_restrained_charges
-        
 
-    def produce_library(self):
-        pass
+    def produce_library(self, resname="RES"):
+        self.mol.write("temp.mol2")
+        parm = parmed.load("temp.mol2")
+        makeamberlibfile(
+            frag=[],
+            parm=parm,
+            input_mol2="temp.mol2",
+            to_removefromlib=self.capping_list,
+            resname=resname,
+        )
 
     def prepare_dih_fit(self):
         pass
