@@ -1,9 +1,10 @@
 import subprocess
+from pathlib import Path
+from typing import Union
 
 import numpy as np
 import pandas as pd
 import parmed
-import rdkit
 from rdkit import Chem
 
 
@@ -204,20 +205,34 @@ def align_antechamber(pdb_path, antechamber_output):
     return np.asarray(inp["GAFF"])
 
 
-def makeamberlibfile(frag, parm, to_removefromlib, resname="MOL"):
+def makeamberlibfile(
+    frag: list,
+    to_removefromlib: list,
+    input_mol2: Union[Path, str],
+    parm: parmed.Topology,
+    resname="MOL",
+):
+    """_summary_
+
+    Args:
+        frag (_type_): _description_
+        to_removefromlib (list): _description_
+        parm (parmed.Topology): _description_
+        resname (str, optional): _description_. Defaults to "MOL".
+    """
     tleapinput = open("tleap.in", "w")
 
     subprocess.check_output(
         "sed '/^DIHE/,/^NONBON/{/^NONBON/!d}'  parmchk2_all.frcmod > parmchk2.frcmod  "
     )
+
     tleapinput.write("loadAmberParams parmchk2.frcmod  \n")
     tleapinput.write("source leaprc.protein.ff14SB \n")
-    tleapinput.write("%s = loadmol2 newcharges.mol2 \n" % (resname))
+    tleapinput.write(f"{resname} = loadmol2 {input_mol2} \n")
     for atom in parm.atoms:
         if atom.idx not in frag or atom.idx in to_removefromlib:
             tleapinput.write("remove %s %s.1.%s\n" % (resname, resname, atom.idx + 1))
-    # for atom  in to_removefromlib :
-    # tleapinput.write('remove %s %s.1.%s\n' %(resname, resname, atom) )
+
     tleapinput.write("set %s head %s.1.N \n" % (resname, resname))
     tleapinput.write("set %s tail %s.1.C \n" % (resname, resname))
     tleapinput.write(
@@ -225,7 +240,6 @@ def makeamberlibfile(frag, parm, to_removefromlib, resname="MOL"):
         % (resname)
     )
     tleapinput.write("saveoff  %s %s.lib \n" % (resname, resname))
-    # os.system('grep -v ATOM  1.pdb > model.pdb')
 
     tleapinput.write("seq = sequence { ACE %s NME }\n" % (resname))
     tleapinput.write("savemol2 seq ACE-%s-NME.mol2 1 \n" % (resname))
@@ -302,3 +316,18 @@ if __name__ == "__main__":
         new_charges=charges,
         out_file="temp_newcharges",
     )
+    amberparm = parmed.load(amberparm_file )
+    for  atom in amberparm_file.atoms  : 
+
+        if atom.element is "N" :
+            atom.name == "N"
+            atom.type = "N"
+        if atom.element is "O" :
+            atom.name == "O"
+            atom.type = "O"
+        if atom.element is "C" :
+            if 
+            atom.name == "C"
+            atom.type = "C"
+            atom.name == "N"
+            atom.type = "N"

@@ -70,6 +70,34 @@ def impose_amber14ff_charges(list_atoms):
     return {}
 
 
+def run_psiresp(mol, backbone_atoms, capping_group_atoms):
+    psirespmol = psiresp.Molecule.from_rdkit(mol)
+
+    constraints = psiresp.ChargeConstraintOptions(symmetric_atoms_are_equivalent=True)
+    print(capping_group_atoms)
+    constraints.add_charge_sum_constraint_for_molecule(
+        psirespmol, charge=0, indices=capping_group_atoms
+    )
+
+    geometry_options = psiresp.QMGeometryOptimizationOptions(
+        method="b3lyp",
+        basis="sto-3g",
+    )
+    esp_options = psiresp.QMEnergyOptions(
+        method="b3lyp",
+        basis="sto-3g",
+    )
+
+    job_multi = psiresp.Job(
+        molecules=[psirespmol],
+        charge_constraints=constraints,
+        qm_optimization_options=geometry_options,
+        qm_esp_options=esp_options,
+        working_directory="resp_qm_calculations",
+    )
+    job_multi.run(client="local")
+    return job_multi.molecules[0].stage_2_restrained_charges
+
 
 if __name__ == "__main__":
     from prep import build_molecule_from_smiles
