@@ -1,0 +1,13 @@
+
+ &cntrl
+  nstlim=20000, dt=0.002, ntx=5, irest=1, ntpr=500, ntwr=5000, ntwx=5000,
+
+  temp0=300, ntt=1, tautp=2.0,
+ 
+  ntb=2, ntp=1,
+
+  ntc=2, ntf=2,
+  cut=10 ,
+  nrespa=1, iwrap=1
+
+&end

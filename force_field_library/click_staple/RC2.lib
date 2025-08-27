@@ -1,0 +1,124 @@
+!!index array str
+ "RC2"
+!entry.RC2.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "NG" "na" 0 1 131072 12 7 -0.338696
+ "CD" "cc" 0 1 131072 13 6 0.315278
+ "CG" "cc" 0 1 131072 14 6 -0.032141
+ "NA" "nc" 0 1 131072 15 7 -0.010526
+ "NB" "nc" 0 1 131072 16 7 -0.012561
+ "CB" "c3" 0 1 131072 17 6 0.011192
+ "CA" "CX" 0 1 131072 18 6 0.053891
+ "C" "c" 0 1 131072 19 6 0.636774
+ "O" "o" 0 1 131072 22 8 -0.539474
+ "N" "ns" 0 1 131072 23 7 -0.561693
+ "HD" "h4" 0 1 131072 42 1 0.064516
+ "HB1" "hi" 0 1 131072 43 1 0.021976
+ "HB2" "hi" 0 1 131072 44 1 0.021976
+ "HA" "h1" 0 1 131072 45 1 0.023526
+ "H" "hn" 0 1 131072 50 1 0.298555
+!entry.RC2.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "NG" "na" 0 -1 0.0
+ "CD" "cc" 0 -1 0.0
+ "CG" "cc" 0 -1 0.0
+ "NA" "nc" 0 -1 0.0
+ "NB" "nc" 0 -1 0.0
+ "CB" "c3" 0 -1 0.0
+ "CA" "CX" 0 -1 0.0
+ "C" "c" 0 -1 0.0
+ "O" "o" 0 -1 0.0
+ "N" "ns" 0 -1 0.0
+ "HD" "h4" 0 -1 0.0
+ "HB1" "hi" 0 -1 0.0
+ "HB2" "hi" 0 -1 0.0
+ "HA" "h1" 0 -1 0.0
+ "H" "hn" 0 -1 0.0
+!entry.RC2.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.RC2.unit.childsequence single int
+ 2
+!entry.RC2.unit.connect array int
+ 10
+ 8
+!entry.RC2.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 2 1
+ 1 5 1
+ 2 3 2
+ 2 11 1
+ 3 4 1
+ 3 6 1
+ 4 5 2
+ 6 7 1
+ 6 12 1
+ 6 13 1
+ 7 8 1
+ 7 10 1
+ 7 14 1
+ 8 9 2
+ 10 15 1
+!entry.RC2.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+ "R" 1 "A" 8
+ "R" 1 "A" 9
+ "R" 1 "A" 10
+ "R" 1 "A" 11
+ "R" 1 "A" 12
+ "R" 1 "A" 13
+ "R" 1 "A" 14
+ "R" 1 "A" 15
+!entry.RC2.unit.name single str
+ "MOL"
+!entry.RC2.unit.positions table  dbl x  dbl y  dbl z
+ 0.614000 -0.423000 -0.197000
+ 1.790000 0.259000 -0.252000
+ 2.740000 -0.731000 -0.367000
+ 2.117000 -1.952000 -0.387000
+ 0.811000 -1.751000 -0.277000
+ 4.220000 -0.630000 -0.449000
+ 4.901000 -1.000000 0.878000
+ 4.976000 0.214000 1.839000
+ 4.159000 1.131000 1.839000
+ 6.209000 -1.661000 0.694000
+ 1.859000 1.335000 -0.186000
+ 4.507000 0.380000 -0.769000
+ 4.552000 -1.312000 -1.243000
+ 4.299000 -1.749000 1.410000
+ 6.194000 -2.673000 0.712000
+!entry.RC2.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 0 0 0 0 0 0
+!entry.RC2.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "MOL" 1 58 1 "?" 0
+!entry.RC2.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.RC2.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.RC2.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0

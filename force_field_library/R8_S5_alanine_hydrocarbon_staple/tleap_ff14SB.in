@@ -1,0 +1,14 @@
+source leaprc.protein.ff14SB 
+source leaprc.water.tip3p
+loadamberparams frcmod.ions1lm_126_tip3p
+loadamberparams R8_S5_alanine.frcmod
+loadoff R81.lib
+loadoff S52.lib
+m = loadpdb template.pdb
+bond m.4.CY m.11.CY
+solvatebox m TIP3PBOX 10 iso 
+addIonsRand m Na+ 0 
+addIonsRand m Cl- 0   
+saveamberparm m system.wat.leap.prmtop system.wat.leap.rst7
+savepdb m peptide.pdb
+quit

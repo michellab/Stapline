@@ -1,0 +1,17 @@
+
+ &cntrl
+  imin=1, 
+  maxcyc=1000000, 
+  ntmin = 2,
+  ntx = 1, 
+  ntc = 1, 
+  ntf = 1, 
+  iwrap=1 ,
+  ntb = 1, 
+  ntp = 0, 
+  ncyc = 100,
+  ntwx = 1000, 
+  ntwe = 0, 
+  ntpr = 1000,
+  cut = 10.0
+ &end
