@@ -80,7 +80,7 @@ Contains code to prepare force field parameters for other stapled residues and/o
 
 **Molecular Dynamics**
 
-Contains the SAH-p53 peptide PDB input files and scripts to prepare, run and analyse MD simulations.
+Contains the SAH-p53 peptide PDB input files and scripts to prepare, run and analyse MD simulations, as well MD trajectories and output from helicity analyses.
 
 
 ### Citation
