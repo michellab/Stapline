@@ -56,7 +56,7 @@ The initial frcmod (force field parameter) file with GAFF2 parameters for the cl
 
 where the correct path to the AmberTools installation must be specified.
 
-To prepare lib files, the stapled residue is split in two residues, usually asymmetric. We recommend avoiding splitting double bonds between the two residues, as attempting to create a double bond later in tleap (see the ``force_field_library`` directory) can produce either a cis- or trans- conformation (this is important for the hydrocarbon staples). The atom indices of the two atoms participating in the split bond are passed in the notebook and create the two lib files (e.g. ``SC1.lib`` and ``SC2.lib``). Note that you have to specify the head (N) and tail (C) atoms for each residue, so that the two split residues can be correctly connected to the rest of the protein backbone. To find which atoms they are, you can visualise the ``capped_staple_charges.mol2`` file in e.g. PyMOL and select the appropriate atoms for the two split residues. Again, check for any atom types wrongly assigned and correct them, and change the atom type of the Calpha atoms to CX (or CJ in the case of di-substituted Calphas). The atom names (not atom types) may also be modified. For example, the main chain carbons can be named CA, CB, CG, CD, CE, CZ etc., and their hydrogens HA, HB1, HB2, HG1, HG2 etc. Have a look at the ``template.pdb`` files to see how atoms are named in the staples we parameterised. You can ignore any errors shown when using tleap to make the lib files.
+To prepare lib files, the stapled residue is split in two residues, usually asymmetric. We recommend avoiding splitting double bonds between the two residues, as attempting to create a double bond later in tleap (see the ``force_field_library`` directory) can produce either a cis- or trans- configuration (this is important for the hydrocarbon staples). The atom indices of the two atoms participating in the split bond are passed in the notebook and create the two lib files (e.g. ``SC1.lib`` and ``SC2.lib``). Note that you have to specify the head (N) and tail (C) atoms for each residue, so that the two split residues can be correctly connected to the rest of the protein backbone. To find which atoms they are, you can visualise the ``capped_staple_charges.mol2`` file in e.g. PyMOL and select the appropriate atoms for the two split residues. Again, check for any atom types wrongly assigned and correct them, and change the atom type of the Calpha atoms to CX (or CJ in the case of di-substituted Calphas). The atom names (not atom types) may also be modified. For example, the main chain carbons can be named CA, CB, CG, CD, CE, CZ etc., and their hydrogens HA, HB1, HB2, HG1, HG2 etc. Have a look at the ``template.pdb`` files to see how atoms are named in the staples we parameterised. You can ignore any errors shown when using tleap to make the lib files.
 
 _______________________________________________________________________________________________
 **The following scripts should be applied in the order they are explained for one torsion at a time**
@@ -164,6 +164,8 @@ c3-c3-c3-c3   1    0.501         0.000          -3.000
 c3-c3-c3-c3   1    0.436         0.000          -2.000
 c3-c3-c3-c3   1    0.120         0.000           1.000
 ```
+
+If multiple chemically equivalent torsions have been scanned (e.g. 13-2-3-16, 14-2-3-15 etc. in the fragment shown above), the above steps can be repeated for each torsion individually until the residual energy (QM - (MM,total - MM,torsion)) profile has been obtained for each torsion (run up to the ``prepare_fitting_data.ipynb`` notebook). Then, the residual energies can be averaged and a torsion fit will be done on the average residual energy profile. This is done in the bottom section of the ``dihedral_fitting.ipynb`` notebook (Fitting of multiple chemically equivalent torsions).
 ______________________________________________________________________________________________________________________
 
 After a torsion has been parameterised and the frcmod file updated, the above steps can be followed again to parameterise a new torsion. Note that in the ``mm_parameterisation.ipynb`` notebook, the frcmod file used should be the **updated** one with the new parameters for the first torsion.
@@ -220,3 +222,6 @@ XC-C -ns-hn   4   10.00          180.0           2.         AA,NMA, X -C -N -X
 CX-c -N -H    4   10.00          180.0           2.         AA,NMA, X -C -N -X
 CX-c -N-XC    4   10.00          180.0           2.         AA,NMA, X -C -N -X
 ```
+______________________________________________________________________________________________________________________
+
+Some example torsion data for a single conformer are given for torsions 1-2-3-4 and 2-3-4-5 from the fragment shown above (see ``torsion_fitting/profiles_torsions``).
