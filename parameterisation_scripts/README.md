@@ -79,7 +79,7 @@ Note that in this step, tleap may show some errors about missing parameters (e.g
 
 ``parmchk2 -i fragment.mol2 -f mol2 -o fragment.frcmod -a Y -p /path/to/your/conda/ambertools/environment/dat/leap/parm/gaff2.dat``
 
-For example, for the ``CCCCn1nncc1`` fragment from the Click staple, the following parameters are reported as missing from the frcmod file produced for the full stapled residue (``staple_name_gaff2.frcmod``):
+For example, for the ``CCCCn1nncc1`` fragment (shown below) from the Click staple, the following parameters are reported as missing from the frcmod file produced for the full stapled residue (``staple_name_gaff2.frcmod``):
 ```
 /home/eva/anaconda3/envs/qm_resp_3.8/bin/teLeap: Error!
 Could not find angle parameter: nc - cc - h4
@@ -95,7 +95,11 @@ Building proper torsion parameters.
  ** No torsion terms for  h4-cc-cc-h4
 ```
 
-This is due to the addition of an extra h4 hydrogen in this fragment, which does not exist in the closed stapled residue. The missing parameters should be copied from the ``gaff2.dat`` file:
+This is due to the addition of an extra h4 hydrogen in this fragment (H19), which does not exist in the closed stapled residue.
+
+
+
+The missing parameters should be copied from the ``gaff2.dat`` file:
 
 ```
 h4-cc-nc   61.700     121.140
