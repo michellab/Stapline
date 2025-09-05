@@ -97,7 +97,7 @@ Building proper torsion parameters.
 
 This is due to the addition of an extra h4 hydrogen in this fragment (H19), which does not exist in the closed stapled residue.
 
-
+![Alt text](torsion_fitting/images/click_fragment.png)
 
 The missing parameters should be copied from the ``gaff2.dat`` file:
 
