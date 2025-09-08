@@ -14,6 +14,8 @@ The ``resp_charges.ipynb`` notebook can also be used to calculate RESP charges f
 As the RESP charge calculations can take a few hours to complete, they can be run in the background with:
 ``nohup jupyter nbconvert --to notebook --execute resp_charges.ipynb --output output.ipynb > output.log 2>&1 &``
 
+The necessary ``nbconvert`` command can be installed in the ``qm_scans`` conda environment with ``conda install nbconvert``.
+
 **fragment_resp_charges**
 
 Contains:
