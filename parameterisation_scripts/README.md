@@ -7,7 +7,7 @@ Contains:
 -helper scripts inside the parameteriser/ directory
 
 The number of conformers used can be modified within the ``parameteriser/runner.py`` script. If parameterising a residue that needs to have a total charge other than 0, the following code can be added to the ``runner.py`` script in the ``get_resp_job`` function (example for a residue with +1 charge):
-``constraints.add_charge_sum_constraint_for_molecule(psirespmol, charge=+1, indices=self.backbone_list+self.sidechain_list)``
+``constraints.add_charge_sum_constraint_for_molecule(psirespmol, charge=+1, indices=self.backbone_list+self.sidechain_list+self.capping_list)``
 
 The ``resp_charges.ipynb`` notebook can also be used to calculate RESP charges for other non-proteinogenic, unstapled residues, provided they have the usual protein backbone C(C=O)N([H]). The Calpha atom can be mono- or di-substituted.
 
