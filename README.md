@@ -8,7 +8,7 @@ We recommend creating separate conda environments for the residue fragmentation,
 
 **1. Residue Fragmentation**
 
-Refer to https://docs.openforcefield.org/projects/bespokefit/en/stable/getting-started/installation.html for instructions on installing bespokefit.
+Refer to https://docs.openforcefield.org/projects/bespokefit/en/stable/getting-started/installation.html for instructions for bespokefit.
 
 ```
 conda create -n bespokefit-env
@@ -56,7 +56,7 @@ After installing the above packages, pydantic will need to be downgraded to 1.10
 
 **3. MM Energy Decomposition**
 
-Refer to https://sire.openbiosim.org/install.html for instructions on creating a conda environment for Sire. The version of Sire used in this work is 2023.5.1
+Refer to https://sire.openbiosim.org/install.html for instructions for Sire. The version of Sire used in this work is 2023.5.1
 
 ```
 conda create -n openbiosim "python<3.13"
