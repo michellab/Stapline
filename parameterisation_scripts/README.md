@@ -29,11 +29,11 @@ Calculations can be run in the background with:
 
 Contains:
 
--molecule_fragmenter.ipynb (and helper scripts utils.py and utils_toolkit.py)
+-``molecule_fragmenter.ipynb`` (and helper scripts ``utils.py`` and ``utils_toolkit.py``)
 
 (run with the bespokefit conda environment) Takes as input the SMILES string of the capped stapled residue and produces a list of fragments that can be used in torsion scans. We recommend manually selecting those fragments that best describe the parent stapled residue and are large enough to cover the chemical complexity of the staple but not too large so the QM scans are slow and with limited throughput. When choosing multiple fragments, ideally they should have overlapping atoms.
 
--qm_scans_forward.ipynb and qm_scans_backward.ipynb
+-``qm_scans_forward.ipynb`` and ``qm_scans_backward.ipynb``
 
 (run with the qm_scans conda environment) Takes as input the SMILES string of a selected fragment (obtained from the fragmentation process above). The atom indices making up the torsions to be scanned can be identified from the fragment representation within the ``qm_scans_forward.ipynb`` or ``qm_scans_backward.ipynb`` notebooks, and can be used as inputs for the ``run_papermill_forward.py`` and ``run_papermill_backward.py`` scipts (``idx_sets`` variable). The number of CPUs used can be modified from within the notebooks (``nthread`` variable). RESP charges for the fragments need to be passed in the notebooks so that mol2 files with the desired charges can be created. To do this, pass the path to the ``fragment_resp_charges.csv`` file to the ``charges_filename`` variable.
 
@@ -44,11 +44,11 @@ python run_papermill_forward.py
 python run_papermill_backward.py
 ```
 
--plot_qm_energies_forward.ipynb and plot_qm_energies_backward.ipynb
+-``plot_qm_energies_forward.ipynb`` and ``plot_qm_energies_backward.ipynb``
 
 (run with the qm_scans conda environment) Average, normalise and plot the QM energy profiles from the forward and backward scans for all conformers. The resulting csv files with the average forward and backward QM profiles are used later in the ``prepare_fitting_data.ipynb`` notebook to prepare the residual energy profile on which the torsion parameters will be fitted.
 
--mol2_lib_writer.ipynb
+``mol2_lib_writer.ipynb``
 
 (run with the qm_scans conda environment) Takes as input the SMILES string of the capped stapled residue. Use the desired conformation of the staple (e.g. S/S, S/R etc.) to produce the correct lib files. A mol2 file of the staple is prepared with the calculated RESP charges (``capped_staple_charges.mol2``). To use the pre-calculated RESP charges of the stapled residue, pass the path to the ``residue_resp_charges.csv`` file to the ``charges_filename`` variable. Make sure you agree with the atom types assigned in the mol2 file and make any necessary changes.
 
@@ -63,9 +63,9 @@ To prepare lib files, the stapled residue is split in two residues, usually asym
 _______________________________________________________________________________________________
 **The following scripts should be applied in the order they are explained for one torsion at a time**
 
-1. mm_parameterisation.ipynb
+1. ``mol2_mm_parameterisation.ipynb``
 
-(run with the qm_scans conda environment) This notebook prepares topology (prmtop) and coordinate (inpcrd) files for the mol2 files produced during the QM scans, in order to calculate their MM energy. Any atom types that have been wrongly assigned in the mol2 files produced during the QM scans can be modified within the ``mm_parameterisation.ipynb`` notebook. For fragments containing Calpha atoms, their atom types can also be updated to CX (or CJ in the case of di-substituted Calphas). 
+(run with the qm_scans conda environment) This notebook prepares topology (prmtop) and coordinate (inpcrd) files for the mol2 files produced during the QM scans, in order to calculate their MM energy. Any atom types that have been wrongly assigned in the mol2 files produced during the QM scans can be modified within the ``mol2_mm_parameterisation.ipynb`` notebook. For fragments containing Calpha atoms, their atom types can also be updated to CX (or CJ in the case of di-substituted Calphas). 
 
 For the first torsion being fitted, the frcmod file used is the one made in the ``mol2_lib_writer.ipynb`` notebook (``staple_gaff2.frcmod``). Before using it, copy any bonds, angles and torsions involving the Calpha atom in new lines and replace the c3 atom type with the CX (or CJ) atom type, and also include its mass and Lennard-Jones parameters. Additionally, copy the phi, psi, phi' and psi' torsions from the AMBER force field. For example, for the bond between the Calpha and the backbone N, copy the following line:
 
@@ -112,15 +112,15 @@ h4-cc-cc-h4   4   16.000       180.000           2.000
 
 In this repository, you can see all necessary modifications (parameters involving the CX atom and missing torsions for the fragments) in the ``click_staple_gaff2.frcmod``file (compare it with the ``staple_name_gaff2.frcmod``file made with ``parmchk``). We then use the modified file to obtain the prmtop and inpcrd files for the MM energy decomposition step.
 
-2. mm_energy_decomposition.ipynb
+2. ``mm_energy_decomposition.ipynb``
 
 (run with the openbiosim conda environment) Computes the MM energy of the QM conformers (prmtop and inpcrd files prepared in the previous step). In particular, the MM energy of the torsion being fitted is subtracted from the total MM energy of the fragment. The number of CPUs used can be modified from within the notebook (``n_cpus)`` variable). The torsion potential expression from the GAFF2 force field can be accessed here, along with the torsion potential expression of any other torsion. This is also useful for double-checking the potential expressions of previous torsions that have been already fitted. 
 
-3. prepare_fitting_data.ipynb
+3. ``prepare_fitting_data.ipynb``
 
 (run with the qm_scans conda environment) Computes the residual energy (QM - (MM,total - MM,torsion)) profile, which is used for torsion fitting.
 
-4. torsion_fitting.ipynb
+4. ``torsion_fitting.ipynb``
 
 (run with the any conda environment that has ``scikit-learn`` installed) Performs torsion fitting on the residual energy (QM - (MM,total - MM,torsion)) profile. The max. number of periods used during fitting can be specified with the ``n_periods`` variable, we recommend using max. 4 periods as is done in the AMBER force fields. For each periodicity and phase combination (e.g. 1 period and phase 0, 1 period and phase 180, 2 periods and phases 0,0, 2 periods and phases 0,180, ..., 4 periods and phases 180,180,180,180), the code identifies the barrier heights k that best fit the residual potential energy. 
 
@@ -170,7 +170,7 @@ c3-c3-c3-c3   1    0.120         0.000           1.000
 If multiple chemically equivalent torsions have been scanned (e.g. 13-2-3-16, 14-2-3-15 etc. in the fragment shown above), the above steps can be repeated for each torsion individually until the residual energy (QM - (MM,total - MM,torsion)) profile has been obtained for each torsion (run up to the ``prepare_fitting_data.ipynb`` notebook). Then, the residual energies can be averaged and a torsion fit will be done on the average residual energy profile. This is done in the bottom section of the ``dihedral_fitting.ipynb`` notebook (Fitting of multiple chemically equivalent torsions).
 ______________________________________________________________________________________________________________________
 
-After a torsion has been parameterised and the frcmod file updated, the above steps can be followed again to parameterise a new torsion. Note that in the ``mm_parameterisation.ipynb`` notebook, the frcmod file used should be the **updated** one with the new parameters for the first torsion.
+After a torsion has been parameterised and the frcmod file updated, the above steps can be followed again to parameterise a new torsion. Note that in the ``mol2_mm_parameterisation.ipynb`` notebook, the frcmod file used should be the **updated** one with the new parameters for the first torsion.
 
 Once all torsions have been fitted and their parameters updated in the frcmod file, there will be missing parameters connecting the stapled residue backbone to the backbones of other residues. These parameters are copied from the AMBER force field and modified to contain the correct mix of uppercase and lowercase atom types. These torsions are common among all staples and can be copied from the force fields we have already prepared. See the pentenyl glycine, cysteine xylene and Click staple frcmod files. These are the parameters needed:
 
