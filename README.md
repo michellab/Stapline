@@ -68,6 +68,7 @@ conda activate openbiosim
 conda install -n openbiosim -c conda-forge -c openbiosim sire
 conda install matplotlib
 conda install rdkit
+conda install scikit-learn
 ```
 
 **4. MD Simulations**
