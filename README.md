@@ -66,6 +66,8 @@ Refer to https://sire.openbiosim.org/install.html for instructions for Sire. The
 conda create -n openbiosim "python<3.13"
 conda activate openbiosim
 conda install -n openbiosim -c conda-forge -c openbiosim sire
+conda install matplotlib
+conda install rdkit
 ```
 
 **4. MD Simulations**
