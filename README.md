@@ -50,6 +50,10 @@ conda activate qm_scans
 
 ``pip install papermill``
 
+[parmed](https://github.com/ParmEd/ParmEd)
+
+``pip install parmed``
+
 After installing the above packages, pydantic will need to be downgraded to 1.10.8
 
 ``conda install -c conda-forge pydantic=1.10.8``
