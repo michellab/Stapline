@@ -92,4 +92,4 @@ Contains the SAH-p53 peptide PDB input files and scripts to prepare, run and ana
 
 ### Citation
 
-Notari E, Bluntzer MTJ, Michel J, Hulme AN. Stapline: Development of a Force Field Library for Stapled Peptide Residues. ChemRxiv. 2025; [doi:10.26434/chemrxiv-2025-xfcnm](doi:10.26434/chemrxiv-2025-xfcnm)
+Notari E, Bluntzer MTJ, Michel J, Hulme AN. Stapline: Development of a Force Field Library for Stapled Peptide Residues. ChemRxiv. 2025; [doi:10.26434/chemrxiv-2025-xfcnm](https://chemrxiv.org/engage/chemrxiv/article-details/68c3511c23be8e43d6760a9c)
